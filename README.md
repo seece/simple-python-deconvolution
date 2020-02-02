@@ -15,8 +15,9 @@ and then run
 
 ![](jazz.png)
 ![](out.png)
+![](out_clipped.png)
 
-*Input image (left) and deconvolution output (right)*
+*Input image (left) and deconvolution output (middle) and clipped output (right.)*
 
 
 

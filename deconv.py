@@ -31,18 +31,22 @@ for chan in range(img.shape[2]):
 print(f"Input range: [{np.min(img)}, {np.max(img)}]")
 print(f"Output range: [{np.min(img2)}, {np.max(img2)}]")
 
+clipped = np.clip(img2, 0., 1.)
 low = np.min(img2)
 high = np.max(img2)
-img2 = (img2 - low) / (high - low)
+normalized = (img2 - low) / (high - low)
 
 print(f"Normalized output range: [{np.min(img2)}, {np.max(img2)}]")
 
-io.imsave('out.png', img2)
-io.imsave('out.tiff', img2)
+io.imsave('out.png', normalized)
+io.imsave('out_clipped.png', clipped)
+io.imsave('out.tiff', normalized)
 
 plt.figure()
 plt.title('deconvolved')
-plt.imshow(img2)
+plt.imshow(normalized)
+plt.title('deconvolved (clipped range)')
+plt.imshow(clipped)
 plt.figure()
 plt.title('input')
 plt.imshow(img)
