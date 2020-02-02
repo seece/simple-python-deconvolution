@@ -25,7 +25,7 @@ img2 = np.zeros_like(img)
 
 for chan in range(img.shape[2]):
     print(f"Channel {chan}...")
-    img2[:, :, chan] = restoration.wiener(img[:, : , chan], psf, .0025)
+    img2[:, :, chan] = restoration.wiener(img[:, : , chan], psf, regularization)
     #deconvolved_img, _ = restoration.unsupervised_wiener(img, psf)
 
 print(f"Input range: [{np.min(img)}, {np.max(img)}]")
